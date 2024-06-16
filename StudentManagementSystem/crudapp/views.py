@@ -7,6 +7,7 @@ from django.db.models import Q
 
 def index(request):
     students= Student.objects.all()
+    query=""
 
     if request.method =="POST":
         if "add" in request.POST:
@@ -45,5 +46,5 @@ def index(request):
 
 
 
-    context={"students":students}
+    context={"students":students,"query":query}
     return render(request,"index.html",context)
