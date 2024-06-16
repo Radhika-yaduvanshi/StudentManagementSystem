@@ -33,8 +33,9 @@
       </div>
       <div class="container-fluid">
         <form class="d-flex" role="search" method="POST">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          {%csrf_token%}
+          <input class="form-control me-2" type="search"  name="searchquery"  placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" name="search" type="submit">Search</button>
         </form>
       </div>
     </nav>
@@ -123,18 +124,48 @@
                       <div class="modal-content">
                     
                           <div class="modal-body">
-                            <!-- Your form content goes here -->
+                           <!-- Your form content goes here -->
+                            
                              <p>Are you sure ? you want to delete</p>
+                          </div>
                            
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-danger" name="del">delete Student</button>
+                            <button type="button" class="btn btn-danger" name="delete">delete Student</button>
                           </div>
                         </div>
+                      </div>
                   </form>
                 </div>
-              </div>
-          
+              </div> 
+           
+
+                         <!-- delete student model-->
+
+
+                                       <!-- update student model-->
+               <!-- Modal -->
+               <!-- <div class="modal fade" id="deleteStudentModal_{{student.id}}" tabindex="-1" aria-labelledby="deleteStudentModalLabel_{{student.id}}" aria-hidden="true">
+                <div class="modal-dialog">
+                  <form action="" method="POST">
+                      {%csrf_token%}
+                      <input type="hidden" name="id" value="{{student.id  }}">
+                      <div class="modal-content">
+                          <div class="modal-body">
+                               <p>Are u sure?</p>
+                          </div>
+
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary" name="delete">delete Student</button>
+                              </div>
+                          </div>
+                      </div>
+                  </form>
+                </div>
+              </div> -->
+
+
           
     
             {% endfor %}
